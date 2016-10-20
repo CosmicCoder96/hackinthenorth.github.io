@@ -7,7 +7,7 @@ $(".dropdownbutton").click(function(){
 	}
 	else
 	{
-		$(".main-body").css("padding-left","30px");
+		$(".main-body").css("padding-left","0px");
 		$("ul.form").addClass("active");	
 	}
 	console.log("hello world");
@@ -36,11 +36,11 @@ $(".dropdownbutton").click(function(){
 
 function onScroll(event){
     var scrollPos = $(document).scrollTop();
-    $('.nav-buttons a').each(function () {
+    $('ul.form li a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-            $('.nav-buttons a').removeClass("active");
+            $('ul.form li a').removeClass("active");
             currLink.addClass("active");
         }
         else{
@@ -48,20 +48,5 @@ function onScroll(event){
         }
     });
 }
-    max_scroll=($(".landing-footer").position()).top+$(".landing-footer").outerHeight()-$(".nav-buttons").height();
-    //console.log(($(".nav-buttons").position()).top);
-     $(window).scroll(function () {
-        var navbar = $(".nav-buttons");
-
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        if(scrollTop > max_scroll && !navbar.is(".navbuttonFixed")) {
-                navbar.addClass("navbuttonFixed");
-                 $(".main-header")
-        }
-        else if(scrollTop < max_scroll && navbar.is(".navbuttonFixed") ) {
-                navbar.removeClass("navbuttonFixed");
-        }
-
-});
 
 });
